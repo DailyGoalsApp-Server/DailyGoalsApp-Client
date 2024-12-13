@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/viewProfileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看基本資料" />
+
+    <Button
+        android:id="@+id/deleteProfileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刪除基本資料" />
+
+    <Button
+        android:id="@+id/deleteGoalsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刪除所有已完成目標" />
+
+    <Button
+        android:id="@+id/viewCreditsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看製作人員名單" />
+</LinearLayout>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">DailyGoalsApp</string>
+    <!-- 身高選項 -->
+    <string-array name="height_options">
+        <item>150-155 cm</item>
+        <item>156-160 cm</item>
+        <item>161-165 cm</item>
+        <item>166-170 cm</item>
+        <item>171-175 cm</item>
+        <item>176-180 cm</item>
+        <item>181-185 cm</item>
+    </string-array>
+
+    <!-- 體重選項 -->
+    <string-array name="weight_options">
+        <item>30-34 kg</item>
+        <item>35-39 kg</item>
+        <item>40-44 kg</item>
+        <item>45-49 kg</item>
+        <item>50-54 kg</item>
+        <item>55-59 kg</item>
+        <item>60-64 kg</item>
+    </string-array>
+
+    <!-- 性別選項 -->
+    <string-array name="gender_options">
+        <item>男性</item>
+        <item>女性</item>
+    </string-array>
+
+    <!-- 運動頻率選項 -->
+    <string-array name="exercise_frequency_options">
+        <item>0-1 次 / 週</item>
+        <item>2-3 次 / 週</item>
+        <item>4-5 次 / 週</item>
+        <item>6 次 / 週</item>
+        <item>每天</item>
+    </string-array>
+</resources>
