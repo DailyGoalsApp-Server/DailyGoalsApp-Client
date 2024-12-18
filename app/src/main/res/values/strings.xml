@@ -36,4 +36,23 @@
         <item>6 次 / 週</item>
         <item>每天</item>
     </string-array>
+
+    <!--運動強度選項 -->
+        <string-array name="intensity_options">
+            <item>費力</item>
+            <item>中度</item>
+            <item>輕度</item>
+            <item>坐式身體活動</item>
+        </string-array>
+
+    <!--年齡選項 -->
+        <string-array name="age_options">
+            <item>18-25</item>
+            <item>26-35</item>
+            <item>36-45</item>
+            <item>46-55</item>
+            <item>56-65</item>
+            <item>66+</item>
+        </string-array>
+
 </resources>

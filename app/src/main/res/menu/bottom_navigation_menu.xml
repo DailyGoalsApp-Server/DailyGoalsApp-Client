@@ -1,15 +1,18 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/navigation_completed_goals"
         android:title="已完成目標"
-        android:icon="@drawable/check_mark" />
+        android:icon="@drawable/listicon_finish"
+        app:showAsAction="always" />
     <item
         android:id="@+id/navigation_goals"
         android:title="目標"
-        android:icon="@drawable/clipboard" />
+        android:icon="@drawable/listicon_task"
+        app:showAsAction="always" />
     <item
         android:id="@+id/navigation_settings"
         android:title="設定"
-        android:icon="@drawable/settings" />
+        android:icon="@drawable/listicon_setting"
+        app:showAsAction="always" />
 </menu>
-

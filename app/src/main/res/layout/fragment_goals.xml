@@ -19,6 +19,7 @@
         android:id="@+id/changeGoalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_green"
         android:text="換一個目標"
         android:layout_margin="8dp" />
 
@@ -26,6 +27,7 @@
         android:id="@+id/completeGoalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_green"
         android:text="完成目標"
         android:layout_margin="8dp" />
 </LinearLayout>

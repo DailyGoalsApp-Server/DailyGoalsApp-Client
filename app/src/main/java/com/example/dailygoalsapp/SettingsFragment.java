@@ -38,10 +38,10 @@ public class SettingsFragment extends Fragment {
     private void showProfile() {
         UserProfile profile = userProfileDbHelper.getUserProfile();
         if (profile != null) {
-            String message = "身高: " + profile.getHeight() +
-                    "\n體重: " + profile.getWeight() +
+            String message = "身高: " + profile.getHeightRange() +
+                    "\n體重: " + profile.getWeightRange() +
                     "\n性別: " + profile.getGender() +
-                    "\n運動頻率: " + profile.getExerciseFrequency();
+                    "\n運動頻率: " + profile.getExerciseIntensity();
             new AlertDialog.Builder(getContext())
                     .setTitle("基本資料")
                     .setMessage(message)

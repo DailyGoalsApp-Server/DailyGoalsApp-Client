@@ -8,23 +8,27 @@
         android:id="@+id/viewProfileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_green"
         android:text="查看基本資料" />
 
     <Button
         android:id="@+id/deleteProfileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_green"
         android:text="刪除基本資料" />
 
     <Button
         android:id="@+id/deleteGoalsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_green"
         android:text="刪除所有已完成目標" />
 
     <Button
         android:id="@+id/viewCreditsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_green"
         android:text="查看製作人員名單" />
 </LinearLayout>
