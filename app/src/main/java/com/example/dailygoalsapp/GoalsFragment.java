@@ -1,5 +1,7 @@
 package com.example.dailygoalsapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,12 +16,15 @@ import androidx.fragment.app.Fragment;
 import okhttp3.*;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class GoalsFragment extends Fragment {
 
     private final OkHttpClient client = new OkHttpClient();
     private UserProfile userProfile;
-    private TextView goalTextView;
+    private TextView goalTextView, hintTextView;
     private Button changeGoalButton, completeGoalButton;
     private GoalDatabaseHelper dbHelper;
     private static final String TAG = "GoalsFragment";
@@ -31,6 +36,7 @@ public class GoalsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_goals, container, false);
 
         goalTextView = view.findViewById(R.id.goalTextView);
+        hintTextView = view.findViewById(R.id.hintTextView);
         changeGoalButton = view.findViewById(R.id.changeGoalButton);
         completeGoalButton = view.findViewById(R.id.completeGoalButton);
         dbHelper = new GoalDatabaseHelper(getContext());
@@ -39,19 +45,29 @@ public class GoalsFragment extends Fragment {
         UserProfileDatabaseHelper userProfileDbHelper = new UserProfileDatabaseHelper(getActivity());
         userProfile = userProfileDbHelper.getUserProfile();
 
+        // 從 SharedPreferences 讀取已儲存的目標
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GoalPrefs", Context.MODE_PRIVATE);
+        String savedGoal = sharedPreferences.getString("currentGoal", "");
+        goalTextView.setText(savedGoal);
+        hintTextView.setText(sharedPreferences.getString("currentHint", ""));
+
         // 設置 changeGoalButton 按鈕的點擊事件
         changeGoalButton.setOnClickListener(v -> fetchUserTask());
 
         // 設置 completeGoalButton 按鈕的點擊事件
         completeGoalButton.setOnClickListener(v -> {
             String completedGoal = goalTextView.getText().toString();
-            dbHelper.insertGoal(completedGoal);
+            String completionTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+            dbHelper.insertGoal(completedGoal, completionTime);
             goalTextView.setText("");
+            hintTextView.setText("");
             fetchUserTask();
         });
 
-        // 在啟動時載入初始任務
-        fetchUserTask();
+        // 如果沒有已儲存的目標，載入初始任務
+        if (savedGoal.isEmpty()) {
+            fetchUserTask();
+        }
 
         return view;
     }
@@ -103,10 +119,14 @@ public class GoalsFragment extends Fragment {
                             getActivity().runOnUiThread(() -> {
                                 // 更新顯示任務的 TextView
                                 goalTextView.setText(task);
+                                hintTextView.setText(hint);
 
-                                // 可選：顯示提示
-                                // TextView hintTextView = getView().findViewById(R.id.hintTextView);
-                                // hintTextView.setText(hint);
+                                // 儲存目標到 SharedPreferences
+                                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GoalPrefs", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("currentGoal", task);
+                                editor.putString("currentHint", hint);
+                                editor.apply();
                             });
                         } catch (Exception e) {
                             e.printStackTrace();

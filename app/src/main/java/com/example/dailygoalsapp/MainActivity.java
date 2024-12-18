@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.getMenu().findItem(R.id.navigation_goals).setIcon(R.drawable.listicon_task);
             bottomNavigationView.getMenu().findItem(R.id.navigation_settings).setIcon(R.drawable.listicon_setting);
 
+
+
             // 設置 itemIconTintList 為 null，顯示自訂圖片顏色
             bottomNavigationView.setItemIconTintList(null);
 

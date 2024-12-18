@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gress_green">#B9DDBB</color>
-    <color name="button_green">#77B29C</color>
-    <color name="bg">#FFF7DF</color>
+    <color name="gress_green">#D7B6AA</color>
+    <color name="button_green">#956251</color>
+    <color name="bg">#D8D0C0</color>
+    <color name="light_gray">#BD8C78</color>
 </resources>

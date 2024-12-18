@@ -41,7 +41,9 @@ public class SettingsFragment extends Fragment {
             String message = "身高: " + profile.getHeightRange() +
                     "\n體重: " + profile.getWeightRange() +
                     "\n性別: " + profile.getGender() +
-                    "\n運動頻率: " + profile.getExerciseIntensity();
+                    "\n運動頻率: " + profile.getExerciseFrequency()+
+                    "\n年齡: " +  profile.getAgeRange()+
+                    "\n運動強度: " + profile.getExerciseIntensity();
             new AlertDialog.Builder(getContext())
                     .setTitle("基本資料")
                     .setMessage(message)
@@ -53,9 +55,10 @@ public class SettingsFragment extends Fragment {
     private void confirmAndDeleteProfile() {
         new AlertDialog.Builder(getContext())
                 .setTitle("確認刪除")
-                .setMessage("確定要刪除基本資料嗎？")
+                .setMessage("確定要刪除基本資料並清除所有已完成目標嗎？")
                 .setPositiveButton("確定", (dialog, which) -> {
                     userProfileDbHelper.deleteAllData();
+                    goalDbHelper.deleteAllCompletedGoals(); // 刪除已完成的目標
                     getActivity().finish(); // 關閉應用
                 })
                 .setNegativeButton("取消", null)

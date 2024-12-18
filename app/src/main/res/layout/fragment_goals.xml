@@ -1,33 +1,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".GoalsFragment">
 
-    <!-- 目標顯示區 -->
-    <TextView
-        android:id="@+id/goalTextView"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="目標"
-        android:textSize="24sp"
-        android:padding="16dp"
-        android:gravity="center" />
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
 
-    <Button
-        android:id="@+id/changeGoalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_green"
-        android:text="換一個目標"
-        android:layout_margin="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <Button
-        android:id="@+id/completeGoalButton"
+            <TextView
+                android:id="@+id/goalTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="目標"
+                android:textSize="24sp"
+                android:textColor="@color/button_green"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/button_green"/>
+
+            <TextView
+                android:id="@+id/hintTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="提示"
+                android:textSize="16sp"
+                android:textColor="@color/light_gray"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="start" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_green"
-        android:text="完成目標"
-        android:layout_margin="8dp" />
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/changeGoalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_green"
+            android:text="換一個目標"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/completeGoalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_green"
+            android:text="完成目標"
+            android:layout_margin="8dp" />
+    </LinearLayout>
+
 </LinearLayout>
