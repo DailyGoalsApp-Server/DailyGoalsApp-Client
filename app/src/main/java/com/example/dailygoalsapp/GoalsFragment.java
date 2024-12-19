@@ -113,19 +113,28 @@ public class GoalsFragment extends Fragment {
                         try {
                             JSONObject jsonResponse = new JSONObject(responseBody);
                             String task = jsonResponse.getString("task");
-                            String hint = jsonResponse.getString("hints");
+                            String hintsString = jsonResponse.getString("hints");
+
+                            // 移除不需要的字符並使用 split(",") 分割 hints 字符串
+                            hintsString = hintsString.replace("\"", "").replace("[", "").replace("]", "");
+                            String[] hintsArray = hintsString.split(",");
+                            StringBuilder hintsBuilder = new StringBuilder();
+                            for (String hint : hintsArray) {
+                                hintsBuilder.append("● ").append(hint.trim()).append("\n");
+                            }
+                            String hints = hintsBuilder.toString().trim();
 
                             // 更新 UI 或儲存回應資料
                             getActivity().runOnUiThread(() -> {
                                 // 更新顯示任務的 TextView
                                 goalTextView.setText(task);
-                                hintTextView.setText(hint);
+                                hintTextView.setText(hints);
 
                                 // 儲存目標到 SharedPreferences
                                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GoalPrefs", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("currentGoal", task);
-                                editor.putString("currentHint", hint);
+                                editor.putString("currentHint", hints);
                                 editor.apply();
                             });
                         } catch (Exception e) {

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UserProfileActivity extends AppCompatActivity {
 
-    private Spinner heightSpinner, weightSpinner, genderSpinner, frequencySpinner, intensitySpinner,ageSpinner;
+    private Spinner heightSpinner, weightSpinner, genderSpinner, intensitySpinner,ageSpinner;
     private Button submitButton;
     private UserProfileDatabaseHelper dbHelper;
 
@@ -25,7 +25,6 @@ public class UserProfileActivity extends AppCompatActivity {
         heightSpinner = findViewById(R.id.heightSpinner);
         weightSpinner = findViewById(R.id.weightSpinner);
         genderSpinner = findViewById(R.id.genderSpinner);
-        frequencySpinner = findViewById(R.id.frequencySpinner);
         intensitySpinner = findViewById(R.id.intensitySpinner);
         ageSpinner = findViewById(R.id.ageSpinner);
         submitButton = findViewById(R.id.submitButton);
@@ -43,12 +42,11 @@ public class UserProfileActivity extends AppCompatActivity {
                 String height = heightSpinner.getSelectedItem().toString();
                 String weight = weightSpinner.getSelectedItem().toString();
                 String gender = genderSpinner.getSelectedItem().toString();
-                String exerciseFrequency = frequencySpinner.getSelectedItem().toString();
                 String intensity = intensitySpinner.getSelectedItem().toString();
                 String ageRange = ageSpinner.getSelectedItem().toString();
 
                 // 儲存使用者資料
-                dbHelper.insertUserProfile(height, weight, gender, exerciseFrequency, intensity, ageRange);
+                dbHelper.insertUserProfile(height, weight, gender ,intensity, ageRange);
 
                 // 顯示提示並返回主頁面
                 Toast.makeText(UserProfileActivity.this, "感謝填寫！", Toast.LENGTH_SHORT).show();
@@ -79,12 +77,6 @@ public class UserProfileActivity extends AppCompatActivity {
                 R.array.gender_options, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderAdapter);
-
-        // 運動頻率選項
-        ArrayAdapter<CharSequence> frequencyAdapter = ArrayAdapter.createFromResource(this,
-                R.array.exercise_frequency_options, android.R.layout.simple_spinner_item);
-        frequencyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        frequencySpinner.setAdapter(frequencyAdapter);
 
         // 運動強度選項
         ArrayAdapter<CharSequence> intensityAdapter = ArrayAdapter.createFromResource(this,

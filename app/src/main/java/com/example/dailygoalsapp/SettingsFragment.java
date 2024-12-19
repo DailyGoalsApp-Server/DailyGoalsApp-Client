@@ -41,7 +41,6 @@ public class SettingsFragment extends Fragment {
             String message = "身高: " + profile.getHeightRange() +
                     "\n體重: " + profile.getWeightRange() +
                     "\n性別: " + profile.getGender() +
-                    "\n運動頻率: " + profile.getExerciseFrequency()+
                     "\n年齡: " +  profile.getAgeRange()+
                     "\n運動強度: " + profile.getExerciseIntensity();
             new AlertDialog.Builder(getContext())

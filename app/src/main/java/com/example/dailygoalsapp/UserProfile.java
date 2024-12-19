@@ -12,7 +12,7 @@ public class UserProfile {
     public UserProfile() {}
 
     // 帶參數的建構子
-    public UserProfile(String height, String weight, String gender, String exerciseFrequency, String exerciseIntensity,String ageRange) {
+    public UserProfile(String height, String weight, String gender, String exerciseIntensity,String ageRange) {
         this.height = height;
         this.weight = weight;
         this.gender = gender;
